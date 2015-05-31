@@ -1,0 +1,42 @@
+<% content_for :page_header do %>
+  <header>
+    <h1>Login</h1>
+    <h4 class="subheader">Login using your Harvest credentials</h4>
+  </header>
+<% end %>
+
+<% if current_user %>
+  welcome, <%= current_user.first_name %> <%= current_user.last_name %>
+
+<% else %>
+
+  <form accept-charset="UTF-8" action="/sessions" class="simple_form user" method="post" novalidate="novalidate">
+
+      <fieldset>
+
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+
+          <!-- Email Field -->
+          <div class="control-group email required">
+            <div class="controls">
+              <input autofocus="autofocus" class="string email required text_field" id="user_email" name="email" placeholder="Email Address" size="50" type="email">
+            </div>
+          </div>
+          
+          <!-- Password Field -->
+          <div class="control-group password required">
+            <div class="controls">
+              <input class="password required text_field" id="user_password" name="password" placeholder="Password" size="50" type="password" />
+            </div>
+          </div>
+          
+          <!-- Sign In & Register Buttons -->
+          <input class="btn" name="commit" type="submit" value="Sign in" /> or 
+          
+          <!-- Remember Me -->
+          <input class="checkbox" id="remember_me" name="remember_me" type="checkbox" value="1" /> Remember Me
+
+      </fieldset>
+  </form>
+
+<% end %>

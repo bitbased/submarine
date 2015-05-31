@@ -1,0 +1,31 @@
+<%= simple_form_for(@information_group) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :notes %>
+    <%= f.input :template %>
+    <%= f.association :parent %>
+    <%= f.association :information %>
+    <%= f.input :primary %>
+    <%= f.input :data %>
+    <%= f.input :state %>
+    <%= f.input :sync %>
+    <%= f.input :sync_time %>
+    <%= f.input :change_time %>
+    <%= f.input :history %>
+    <%= f.input :deleted_at %>
+    <%= f.input :archived_on %>
+    <%= f.input :active %>
+    <%= f.input :locked_on %>
+    <%= f.input :visible %>
+    <%= f.input :audit_log %>
+    <%= f.input :permalog %>
+    <%= f.input :priority %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

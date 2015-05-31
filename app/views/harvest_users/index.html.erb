@@ -1,0 +1,76 @@
+<%- model_class = HarvestUser -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:submarine_account_id) %></th>
+      <th><%= model_class.human_attribute_name(:slug) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:harvest_id) %></th>
+      <th><%= model_class.human_attribute_name(:cache) %></th>
+      <th><%= model_class.human_attribute_name(:data) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:sync) %></th>
+      <th><%= model_class.human_attribute_name(:sync_time) %></th>
+      <th><%= model_class.human_attribute_name(:change_time) %></th>
+      <th><%= model_class.human_attribute_name(:history) %></th>
+      <th><%= model_class.human_attribute_name(:deleted_at) %></th>
+      <th><%= model_class.human_attribute_name(:archived_on) %></th>
+      <th><%= model_class.human_attribute_name(:active) %></th>
+      <th><%= model_class.human_attribute_name(:locked_on) %></th>
+      <th><%= model_class.human_attribute_name(:visible) %></th>
+      <th><%= model_class.human_attribute_name(:audit_log) %></th>
+      <th><%= model_class.human_attribute_name(:permalog) %></th>
+      <th><%= model_class.human_attribute_name(:draft) %></th>
+      <th><%= model_class.human_attribute_name(:drafting) %></th>
+      <th><%= model_class.human_attribute_name(:priority) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @harvest_users.each do |harvest_user| %>
+      <tr>
+        <td><%= link_to harvest_user.id, harvest_user_path(harvest_user) %></td>
+        <td><%= harvest_user.submarine_account_id %></td>
+        <td><%= harvest_user.slug %></td>
+        <td><%= harvest_user.user_id %></td>
+        <td><%= harvest_user.harvest_id %></td>
+        <td><%= harvest_user.cache %></td>
+        <td><%= harvest_user.data %></td>
+        <td><%= harvest_user.state %></td>
+        <td><%= harvest_user.sync %></td>
+        <td><%= harvest_user.sync_time %></td>
+        <td><%= harvest_user.change_time %></td>
+        <td><%= harvest_user.history %></td>
+        <td><%= harvest_user.deleted_at %></td>
+        <td><%= harvest_user.archived_on %></td>
+        <td><%= harvest_user.active %></td>
+        <td><%= harvest_user.locked_on %></td>
+        <td><%= harvest_user.visible %></td>
+        <td><%= harvest_user.audit_log %></td>
+        <td><%= harvest_user.permalog %></td>
+        <td><%= harvest_user.draft %></td>
+        <td><%= harvest_user.drafting %></td>
+        <td><%= harvest_user.priority %></td>
+        <td><%=l harvest_user.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_harvest_user_path(harvest_user), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      harvest_user_path(harvest_user),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_harvest_user_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,35 @@
+.project-users
+  - for p in @model.get('project_participants').models
+    .btn-group-inline
+
+      - user = @users_collection.get(p.get('user_id'))
+      %button.btn-pill.btn-user.dropdown-toggle{ "data-toggle" => "dropdown", "class" => "#{ 'current-user' if user.get('is_current') } #{ 'project-manager' if p.get('is_manager') }" }
+        = user.get('first_name')
+        = user.get('last_name')
+
+        - if p.get('total_hours') > 0
+          = "(#{p.get('total_hours')})"
+        %i.icon-cog
+
+      %ul.dropdown-menu
+        %li
+          %a.user-action{"data-action" => 'manager', "data-id" => p.get('id')}
+            %i.icon-check{ style: "#{ 'color: #dddddd' unless p.get('is_manager') }" }
+            Manager
+        %li
+          %a.user-action{"data-action" => 'remove', "data-id" => p.get('id')}
+            %i.icon-cancel{ style: "color: #dddddd" }
+            Remove
+
+  - if @model.get('id')
+    .btn-group-inline
+      %button.btn-pill.dropdown-toggle{ "data-toggle" => "dropdown" }
+        %i.icon-user-add
+
+      %ul.dropdown-menu
+        - for user in @users_collection.models
+          - continue if !user.get('active')
+          %li
+            %a.user-select{ "data-user_id" => user.get('id') }
+              = user.get('first_name')
+              = user.get('last_name')

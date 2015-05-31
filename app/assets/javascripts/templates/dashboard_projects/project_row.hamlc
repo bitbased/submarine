@@ -1,0 +1,82 @@
+
+.project-info-column.area-name{ :style => "#{ 'opacity:0.25' if !@model.get('active') }" }
+  - if date
+    .project-completion{ :class => "#{ 'past-due' if new Date(date) <= new Date() }" }
+      = humanDate(new Date(date)) + ": " + f_date
+
+  %select.edit-client-id
+  - if @model.get('id')
+    .project-client-name
+      - if @model.get('client_id')
+        = @clients_collection.get(@model.get('client_id')).get('name')
+      - else
+        *No Client Set
+
+  %select.edit-secondary-client-id
+  - if @model.get('id') && @model.get('secondary_client_id')
+    .project-secondary-client-name
+      - if @model.get('client_id')
+        = @clients_collection.get(@model.get('secondary_client_id')).get('name')
+
+  .project-name
+    = @model.get('name')
+    - unless @model.get('name')
+      *Unnamed Project
+  %input.edit-name{ :value => "#{@model.get('name')}", :placeholder => "Project Name" }
+
+  != JST["dashboard_projects/project_users"](@)
+
+  .project-notes
+    - unless @model.get('notes') == "" || !@model.get('notes')
+      != formatLinks(@model.get('notes').replace(/\n/g,"<br>"))
+  %textarea.edit-notes( placeholder="Project Notes" )!= @model.get('notes')
+
+
+
+
+!= JST["dashboard_projects/project_icon"]({ model: @model })
+
+.project-code-column.action-show{ style: "#{ 'opacity:0.25;' if !@model.get('active') };" }
+
+  - code = @model.get('code')
+  - date = @model.get('due_date')
+  - f_date = new Date(date).format("m/dd/yy") if date
+  .project-date{ :class => "#{ 'past-due' if date && new Date(date) <= new Date() } #{ 'no-date' unless date }" }
+    - if date
+      = f_date
+    - else
+      NoDueDate
+  %input.edit-date{ value: "#{ f_date if date }", placeholder: "Due Date" }
+
+  %a.project-code{href: "https://harvestapp.com/reports/projects/#{@model.get('harvest_id')}?from=20000101&till=30001231&kind=custom", target: "_blank"}= code
+  %input.edit-code{value: code}
+
+  .project-hours
+    - if @model.get('total_hours') > 0
+      = @model.get('total_hours')
+      hrs
+  .project-expenses
+    - if @model.get('total_expenses') > 0
+      = "$#{Math.round(@model.get('total_expenses'))}"
+
+
+.project-status-column.area-status{ :style => "#{ 'opacity:0.25' if !@model.get('active') }" }
+  .status-dropdown-area
+    != JST["dashboard_projects/project_status"]({ model: @model, status: @model.get('status') })
+  %input.edit-status{ type: "hidden", value: @model.get('status') }
+
+  - status = @model.get('status')
+  - if @model.get('active') == true
+    - if status == 'cancelled' || status == 'completed'
+      %button.action-archive.btn-archive archive
+    - else
+      %i.action-edit.icon-pencil.btn-edit
+  - else
+    %button.action-restore.btn-restore restore
+
+  - if @model.get('id')
+    %button.action-save.btn-edit save changes
+    %button.action-undo.btn-edit cancel changes
+  - else
+    %button.action-save.btn-edit create
+    %button.action-undo.btn-edit cancel

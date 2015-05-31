@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @expense_entry.project %>
+</p>
+
+<p>
+  <b>Expense category:</b>
+  <%= @expense_entry.expense_category %>
+</p>
+
+<p>
+  <b>Billable:</b>
+  <%= @expense_entry.billable %>
+</p>
+
+<p>
+  <b>Billed:</b>
+  <%= @expense_entry.billed %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @expense_entry.date %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @expense_entry.user %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @expense_entry.notes %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @expense_entry.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @expense_entry.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @expense_entry.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @expense_entry.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @expense_entry.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @expense_entry.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @expense_entry.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @expense_entry.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @expense_entry.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @expense_entry.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @expense_entry.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @expense_entry.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @expense_entry.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @expense_entry.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_expense_entry_path(@expense_entry) %> |
+<%= link_to 'Back', expense_entries_path %>

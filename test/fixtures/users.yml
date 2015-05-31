@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contact: 
+  name: MyString
+  email: MyString
+  notes: MyString
+  password_digest: MyString
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-10 14:08:51
+  change_time: 2013-02-10 14:08:51
+  history: MyText
+  deleted: false
+  archived: false
+  active: false
+  locked: false
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  priority: 1.5
+
+two:
+  contact: 
+  name: MyString
+  email: MyString
+  notes: MyString
+  password_digest: MyString
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-10 14:08:51
+  change_time: 2013-02-10 14:08:51
+  history: MyText
+  deleted: false
+  archived: false
+  active: false
+  locked: false
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  priority: 1.5

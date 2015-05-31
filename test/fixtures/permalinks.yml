@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  slug: MyString
+  name: MyString
+  description: MyString
+  destination: MyString
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-11 10:05:37
+  change_time: 2013-02-11 10:05:37
+  history: MyText
+  deleted_at: 2013-02-11 10:05:37
+  archived_on: 2013-02-11 10:05:37
+  active: false
+  locked_on: 2013-02-11 10:05:37
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  draft: false
+  drafting: MyText
+  priority: 1.5
+
+two:
+  slug: MyString
+  name: MyString
+  description: MyString
+  destination: MyString
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-11 10:05:37
+  change_time: 2013-02-11 10:05:37
+  history: MyText
+  deleted_at: 2013-02-11 10:05:37
+  archived_on: 2013-02-11 10:05:37
+  active: false
+  locked_on: 2013-02-11 10:05:37
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  draft: false
+  drafting: MyText
+  priority: 1.5

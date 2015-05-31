@@ -1,0 +1,63 @@
+<h1>Listing information_groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Notes</th>
+    <th>Template</th>
+    <th>Parent</th>
+    <th>Information</th>
+    <th>Primary</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @information_groups.each do |information_group| %>
+  <tr>
+    <td><%= information_group.name %></td>
+    <td><%= information_group.description %></td>
+    <td><%= information_group.notes %></td>
+    <td><%= information_group.template %></td>
+    <td><%= information_group.parent %></td>
+    <td><%= information_group.information %></td>
+    <td><%= information_group.primary %></td>
+    <td><%= information_group.data %></td>
+    <td><%= information_group.state %></td>
+    <td><%= information_group.sync %></td>
+    <td><%= information_group.sync_time %></td>
+    <td><%= information_group.change_time %></td>
+    <td><%= information_group.history %></td>
+    <td><%= information_group.deleted_at %></td>
+    <td><%= information_group.archived_on %></td>
+    <td><%= information_group.active %></td>
+    <td><%= information_group.locked_on %></td>
+    <td><%= information_group.visible %></td>
+    <td><%= information_group.audit_log %></td>
+    <td><%= information_group.permalog %></td>
+    <td><%= information_group.priority %></td>
+    <td><%= link_to 'Show', information_group %></td>
+    <td><%= link_to 'Edit', edit_information_group_path(information_group) %></td>
+    <td><%= link_to 'Destroy', information_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Information group', new_information_group_path %>

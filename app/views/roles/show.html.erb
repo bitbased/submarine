@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @role.name %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @role.notes %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @role.type %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @role.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @role.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @role.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @role.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @role.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @role.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @role.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @role.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @role.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @role.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @role.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @role.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @role.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @role.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>

@@ -1,0 +1,107 @@
+!!!
+%html
+  %head
+    = csrf_meta_tags
+    %title Submarine
+    /[if lt IE 9]
+      %script{ :src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %style
+      :sass
+        #activity_notification_container
+          border-top-left-radius: 8px
+          background-color: rgba(255,255,255,0.5)
+          padding: 0px
+          border: 1px solid rgba(0,0,0,0.25)
+          position: fixed
+          bottom: 0px
+          right: 0px
+          width: 30%
+          min-width: 100px
+          max-width: 500px
+          .activity-notification
+            border-radius: 5px
+            margin: 3px
+            padding: 3px
+            background-color: rgba(100,100,180,0.9)
+            .title
+              font-weight: bold
+              background-color: rgba(255,255,255,0.9)
+              border-radius: 3px 3px 1px 1px
+              padding-left: 3px
+              padding-right: 3px
+            .message
+              font-weight: normal
+              padding-left: 3px
+              padding-right: 3px
+              font-size: 100%
+              color: white
+              max-height: 200px
+              overflow: scroll
+
+  %body
+    #wrap
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            %a.btn.btn-navbar{ :data_toggle => "collapse", :data_target => ".nav-collapse" }
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand{ :href => "/" }
+              %img{ :src =>"/assets/logo_header.png", :style => "height:42px"}
+
+            .nav-collapse
+              %ul.nav
+                %li= link_to "Dashboard", "/"
+
+                %li.dropdown
+                  %a.dropdown-toggle(href="https://harvestapp.com")
+                    Harvest
+                  %ul.dropdown-menu2(role="menu" aria-labelledby="drop3")
+                    %li= link_to "Time Sheet", "https://harvestapp.com/daily"
+
+                %li= link_to "New Client", "/clients/new"
+                %li= link_to "Time Sheet", "https://harvestapp.com/daily"
+
+                %li= link_to "Activity", "/activity_logs"
+
+                //%li= link_to "Clients", "/dashboard/clients"
+                //%li= link_to "Dropbox", "/dropbox"
+
+                %li.dropdown#fat-menu
+                  %a.dropdown-toggle#drop3(href="#" role="button" data-toggle="dropdown")
+                    Account
+                    %b.caret
+                  %ul.dropdown-menu2(role="menu" aria-labelledby="drop3")
+                    %li
+                      %a(role="menuitem" tabindex="-1" href="/logout") Logout
+                    - if (User.current_user && SubmarineAccount.current_account) && User.current_user.email == SubmarineAccount.current_account.harvest_email
+                      //%li.divider
+                      %li
+                        %a(role="menuitem" tabindex="-1" href="/account") Account Settings
+
+                - if (User.current_user && SubmarineAccount.current_account) && User.current_user.email == SubmarineAccount.current_account.harvest_email
+                  %li.dropdown#fat-menu
+                    %a.dropdown-toggle#drop3(href="#" role="button" data-toggle="dropdown")
+                      %i.icon-menu
+                      %b.caret
+                    %ul.dropdown-menu2(role="menu" aria-labelledby="drop3")
+                      %li
+                        %a(role="menuitem" tabindex="-1" href="/clients") Clients
+                      %li
+                        %a(role="menuitem" tabindex="-1" href="/projects") Projects
+                      %li
+                        %a(role="menuitem" tabindex="-1" href="/time_entries") Time Entries
+                      %li
+                        %a(role="menuitem" tabindex="-1" href="/expense_entries") Expenses
+                      %li= link_to request.remote_ip, "/"
+
+
+      %div.container
+        %div.row
+          %div.span12= yield
+
+  #activity_notification_container

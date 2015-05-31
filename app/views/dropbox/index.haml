@@ -1,0 +1,25 @@
+%style
+  :sass
+    .clear
+      clear: both
+    .aws_file
+      clear: both
+      .key
+        float: left
+      .size
+        float: right
+
+%h1 Dropbox
+
+- @aws_objects.each do |obj|
+  .aws_file
+    .key
+      = obj.key
+    .size
+      = (obj.size / 1024.0 / 1024.0*1000.0).round / 1000.0
+      mb
+
+.clear
+
+= s3_uploader_form post: "/dropbox/upload", as: "dropbox[file_url]" do
+  = file_field_tag :file, multiple: true

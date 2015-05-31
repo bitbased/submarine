@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @client.name %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @client.tags %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @client.details %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @client.notes %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @client.data %>
+</p>
+
+<p>
+  <b>Harvest Data:</b>
+  <%= @client.harvest_clients.first.cache.inspect rescue "Not Synced" %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @client.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @client.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @client.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @client.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @client.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @client.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @client.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @client.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @client.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @client.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @client.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @client.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @client.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

@@ -1,0 +1,61 @@
+<h1>Listing permalinks</h1>
+
+<table>
+  <tr>
+    <th>Slug</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Destination</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted at</th>
+    <th>Archived on</th>
+    <th>Active</th>
+    <th>Locked on</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Draft</th>
+    <th>Drafting</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @permalinks.each do |permalink| %>
+  <tr>
+    <td><%= permalink.slug %></td>
+    <td><%= permalink.name %></td>
+    <td><%= permalink.description %></td>
+    <td><%= permalink.destination %></td>
+    <td><%= permalink.data %></td>
+    <td><%= permalink.state %></td>
+    <td><%= permalink.sync %></td>
+    <td><%= permalink.sync_time %></td>
+    <td><%= permalink.change_time %></td>
+    <td><%= permalink.history %></td>
+    <td><%= permalink.deleted_at %></td>
+    <td><%= permalink.archived_on %></td>
+    <td><%= permalink.active %></td>
+    <td><%= permalink.locked_on %></td>
+    <td><%= permalink.visible %></td>
+    <td><%= permalink.audit_log %></td>
+    <td><%= permalink.permalog %></td>
+    <td><%= permalink.draft %></td>
+    <td><%= permalink.drafting %></td>
+    <td><%= permalink.priority %></td>
+    <td><%= link_to 'Show', permalink %></td>
+    <td><%= link_to 'Edit', edit_permalink_path(permalink) %></td>
+    <td><%= link_to 'Destroy', permalink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Permalink', new_permalink_path %>

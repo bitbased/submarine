@@ -1,0 +1,14 @@
+<div class="row">
+  <header>
+    <h1>Syncronization</h1>
+    <h4 class="subheader">Syncronization Data</h4>
+  </header>
+  <hr>
+
+<% if @activity %>
+  <% @activity.message.split("\n").each do |m| %>
+    <%= m %><br>
+  <% end %>
+<% end %>
+  
+</div>

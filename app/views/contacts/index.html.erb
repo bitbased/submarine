@@ -1,0 +1,71 @@
+<h1>Listing contacts</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Tags</th>
+    <th>Company</th>
+    <th>Title</th>
+    <th>Email</th>
+    <th>Office number</th>
+    <th>Mobile number</th>
+    <th>Fax number</th>
+    <th>Notes</th>
+    <th>Shared</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contacts.each do |contact| %>
+  <tr>
+    <td><%= contact.first_name %></td>
+    <td><%= contact.last_name %></td>
+    <td><%= contact.tags %></td>
+    <td><%= contact.company %></td>
+    <td><%= contact.title %></td>
+    <td><%= contact.email %></td>
+    <td><%= contact.office_number %></td>
+    <td><%= contact.mobile_number %></td>
+    <td><%= contact.fax_number %></td>
+    <td><%= contact.notes %></td>
+    <td><%= contact.shared %></td>
+    <td><%= contact.data %><%= contact.harvest_contacts.first.cache if contact.harvest_contacts.first %></td>
+    <td><%= contact.state %></td>
+    <td><%= contact.sync %></td>
+    <td><%= contact.sync_time %></td>
+    <td><%= contact.change_time %></td>
+    <td><%= contact.history %></td>
+    <td><%= contact.deleted_at %></td>
+    <td><%= contact.archived_on %></td>
+    <td><%= contact.active %></td>
+    <td><%= contact.locked_on %></td>
+    <td><%= contact.visible %></td>
+    <td><%= contact.audit_log %></td>
+    <td><%= contact.permalog %></td>
+    <td><%= contact.priority %></td>
+    <td><%= link_to 'Show', contact %></td>
+    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+    <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contact', new_contact_path %>

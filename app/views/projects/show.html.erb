@@ -1,0 +1,190 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @project.code %>
+</p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+
+<table>
+  <th>
+    <td>user</td>
+    <td>hours</td>
+  </th>
+<% @project.time_entries.each do |entry| %>
+  <tr>
+    <td><%= entry.user %></td>
+    <td><%= entry.hours.round(1) %></td>
+    <td><%= entry.notes %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+
+
+<table>
+  <th>
+    <td>user</td>
+    <td>hours</td>
+  </th>
+<% @project.project_task_category_assignments.each do |entry| %>
+  <tr>
+    <td><%= entry.harvest_task_assignments.first.cache.inspect %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<p>
+  <b>Harvest Data:</b>
+  <%= @project.harvest_projects.first.cache.inspect rescue "Not Synced" %>
+</p>
+
+<p>
+  <b>Open date:</b>
+  <%= @project.open_date %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <b>Focus:</b>
+  <%= @project.focus %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @project.due_date %>
+</p>
+
+<p>
+  <b>Close date:</b>
+  <%= @project.close_date %>
+</p>
+
+<p>
+  <b>Progress:</b>
+  <%= @project.progress %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @project.parent %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @project.client %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @project.contact %>
+</p>
+
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @project.tags %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @project.status %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @project.notes %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @project.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @project.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @project.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @project.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @project.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @project.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @project.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @project.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @project.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @project.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @project.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @project.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @project.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @project.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

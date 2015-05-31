@@ -1,0 +1,55 @@
+<h1>Listing roles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Notes</th>
+    <th>Type</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @roles.each do |role| %>
+  <tr>
+    <td><%= role.name %></td>
+    <td><%= role.notes %></td>
+    <td><%= role.type %></td>
+    <td><%= role.data %></td>
+    <td><%= role.state %></td>
+    <td><%= role.sync %></td>
+    <td><%= role.sync_time %></td>
+    <td><%= role.change_time %></td>
+    <td><%= role.history %></td>
+    <td><%= role.deleted_at %></td>
+    <td><%= role.archived_on %></td>
+    <td><%= role.active %></td>
+    <td><%= role.locked_on %></td>
+    <td><%= role.visible %></td>
+    <td><%= role.audit_log %></td>
+    <td><%= role.permalog %></td>
+    <td><%= role.priority %></td>
+    <td><%= link_to 'Show', role %></td>
+    <td><%= link_to 'Edit', edit_role_path(role) %></td>
+    <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Role', new_role_path %>

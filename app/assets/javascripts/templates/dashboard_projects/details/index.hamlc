@@ -1,0 +1,49 @@
+.week-view
+  .week-header.header
+    .prev-week
+      %i.icon-left-open-big
+    .day-heading.day-monday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        M
+      .total-time 0:00
+    .day-heading.day-tuesday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        T
+      .total-time 0:00
+    .day-heading.day-wednesday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        W
+      .total-time 0:00
+    .day-heading.day-thursday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        Th
+      .total-time 0:00
+    .day-heading.day-friday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        F
+      .total-time 0:00
+    .day-heading.day-saturday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        S
+      .total-time 0:00
+    .day-heading.day-sunday
+      %i.icon-plus.new-time-entry
+      .day-abbr
+        Su
+      .total-time 0:00
+    .all-time.selected
+      %i.icon-users
+    .all-expenses
+      %i.icon-dollar
+    .next-week
+      %i.icon-right-open-big
+
+.entries-view
+  .time-entries
+  .expense-entries

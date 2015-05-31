@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @activity_log.user %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @activity_log.parent %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%= @activity_log.activity %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @activity_log.message %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @activity_log.description %>
+</p>
+
+<p>
+  <b>Dismissed by:</b>
+  <%= @activity_log.dismissed_by %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @activity_log.notes %>
+</p>
+
+<%= link_to 'Edit', edit_activity_log_path(@activity_log) %> |
+<%= link_to 'Back', activity_logs_path %>

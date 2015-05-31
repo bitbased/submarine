@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Slug:</b>
+  <%= @permalink.slug %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @permalink.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @permalink.description %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%= @permalink.destination %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @permalink.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @permalink.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @permalink.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @permalink.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @permalink.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @permalink.history %>
+</p>
+
+<p>
+  <b>Deleted at:</b>
+  <%= @permalink.deleted_at %>
+</p>
+
+<p>
+  <b>Archived on:</b>
+  <%= @permalink.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @permalink.active %>
+</p>
+
+<p>
+  <b>Locked on:</b>
+  <%= @permalink.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @permalink.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @permalink.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @permalink.permalog %>
+</p>
+
+<p>
+  <b>Draft:</b>
+  <%= @permalink.draft %>
+</p>
+
+<p>
+  <b>Drafting:</b>
+  <%= @permalink.drafting %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @permalink.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_permalink_path(@permalink) %> |
+<%= link_to 'Back', permalinks_path %>

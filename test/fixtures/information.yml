@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  parent: 
+  primary_group: 
+  name: MyString
+  description: MyString
+  tags: MyString
+  template: MyText
+  notes: MyString
+  items: MyText
+  secure_items: MyText
+  secure_params: MyText
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-10 14:09:10
+  change_time: 2013-02-10 14:09:10
+  history: MyText
+  deleted: false
+  archived: false
+  active: false
+  locked: false
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  priority: 1.5
+
+two:
+  parent: 
+  primary_group: 
+  name: MyString
+  description: MyString
+  tags: MyString
+  template: MyText
+  notes: MyString
+  items: MyText
+  secure_items: MyText
+  secure_params: MyText
+  data: MyText
+  state: MyString
+  sync: MyText
+  sync_time: 2013-02-10 14:09:10
+  change_time: 2013-02-10 14:09:10
+  history: MyText
+  deleted: false
+  archived: false
+  active: false
+  locked: false
+  visible: false
+  audit_log: MyText
+  permalog: MyText
+  priority: 1.5

@@ -1,0 +1,141 @@
+<div class="row">
+
+
+  <!-- Entire Navbar Code -->
+  <ul class="hide-for-small nav-bar" style="margin-top:0px">
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/dashboard/projects">Projects</a></li>
+    <li class="active"><a href="/dashboard/clients">Clients</a></li>
+    <li><a href="/dashboard">Leads</a></li>
+    <li class="has-flyout">
+      <a href="/dashboard">Billing</a>
+      <a href="#" class="flyout-toggle"><span> </span></a>
+      <ul class="flyout">
+        <li><a href="#">Invoices</a></li>
+        <li><a href="#">Cash Flow</a></li>
+        <li class="active"><a href="#">Leads</a></li>
+        <li><a href="#">Sub Nav 4</a></li>
+        <li><a href="#">Sub Nav Item 5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+
+
+  <ul class="breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li class="current"><a href="/dashboard/clients"><i class="general foundicon-address-book"></i> Clients</a></li>
+    <li><%= link_to new_client_path do %><i class="general foundicon-plus"></i><% end %></li>
+  </ul>
+  <div class="twelve columns">
+    <header>
+      <h1>Client Dashboard</h1>
+      <h4 class="subheader">Client directory listing</h4>
+    </header>
+  </div>
+</div>
+
+
+
+<div class="row">
+
+<table class="twelve">
+  <% @clients.each do |client| %>
+  <tr>
+    <td>
+      
+      <div class="row">
+
+        <div class="eight columns">
+          <h4><%= client.name %></h4>
+        </div>
+        <div class="four columns">
+          <ul class="button-group radius">
+            <li>
+              <%= link_to 'Details', client, class: "button tiny secondary" %>
+            </li>
+            <li>
+              <%= link_to 'Edit', edit_client_path(client), class: "button tiny secondary" %>
+            </li>
+            <li>
+              <%= link_to 'Archive', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny secondary" %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="row" style="padding-bottom: 10px;">
+
+        <div class="twelve columns">
+          <ul class="block-grid three-up mobile-two-up">
+            <% client.contacts.each_with_last do |contact, last| %>
+              <li>
+                <div style="padding-left:10px; border-radius: 5px; background: rgba(0,0,0,.1);">
+                  <%= link_to contact do %>
+                  <div>
+                    <i class="social foundicon-torso"></i> <%= contact.first_name %> <%= contact.last_name %>
+                  </div>
+                  <div><i class="general foundicon-mail" style=" vertical-align: middle">
+                    </i> <span  style="font-size:75%; vertical-align: middle" ><%= contact.email %></span>
+                  </div>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+
+              <li>
+                <div style="border-radius: 5px; background: rgba(0,128,0,.2);">
+                  <a href="/contacts/new?contact[client_id]=<%= client.id %>">
+                    <div style="line-height: 300%; width:100%; padding-left:10px">
+                    <i class="general foundicon-plus"></i> New Contact
+                    </div>
+
+                  </a>
+                </div>
+              </li>
+
+          </ul>
+        </div>
+
+      </div>
+
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="twelve columns">
+          <ul class="block-grid two-up mobile">
+            <% client.projects.where(:active => true).each_with_last do |project, last| %>
+              <li>
+                <div style="padding-left:10px; border-radius: 5px; background: rgba(0,0,0,0.2);">
+                  <%= link_to project, :style => "color:black !important; display: block" do %>
+                    <i class="social general foundicon-folder" style="vertical-align: middle"></i> <span style="vertical-align: middle"><%= (project.code ? (project.code + " - ") : "") + project.name %></span>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+          
+          <ul class="block-grid two-up mobile">
+              <li>
+                <div style="padding-left:10px; border-radius: 5px; background: rgba(0,128,0,0.2);">
+                  <a href="/projects/new?project[client_id]=<%= client.id %>" style="color:black !important; display:block">
+                    <i class="general foundicon-plus" style="vertical-align: middle"></i> <span style="vertical-align: middle">New Project</span>
+                  </a>
+                </div>
+              </li>
+          </ul>
+
+        </div>
+      </div>
+
+
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+</div>
+
+
+<br />
+

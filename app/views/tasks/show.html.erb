@@ -1,0 +1,145 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @task.parent %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @task.project %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @task.tags %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @task.client %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @task.contact %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @task.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @task.status %>
+</p>
+
+<p>
+  <b>Focus:</b>
+  <%= @task.focus %>
+</p>
+
+<p>
+  <b>Progress:</b>
+  <%= @task.progress %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @task.notes %>
+</p>
+
+<p>
+  <b>Open date:</b>
+  <%= @task.open_date %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @task.start_date %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @task.due_date %>
+</p>
+
+<p>
+  <b>Close date:</b>
+  <%= @task.close_date %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @task.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @task.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @task.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @task.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @task.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @task.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @task.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @task.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @task.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @task.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @task.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @task.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @task.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @task.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

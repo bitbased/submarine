@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  <%= @user.contact %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @user.notes %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @user.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @user.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @user.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @user.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @user.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @user.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @user.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @user.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @user.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @user.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @user.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @user.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @user.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @user.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

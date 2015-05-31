@@ -1,0 +1,627 @@
+
+@import views/project_time_sheet_view
+
+.navbar
+  ul
+    padding-left: 0px
+    display: inline-block
+    +row
+    li
+      a
+        +button(white)
+      display: inline-block
+
+  li.dropdown
+    position: relative
+    .dropdown-menu2
+      display: none
+    .dropdown-toggle:hover + .dropdown-menu2, .dropdown-menu2:hover
+      li
+        width: 100%
+        margin: 0px
+      width: 200px
+      display: block
+      position: absolute
+      z-index: 2000
+
+
+.btn.tiny
+  +button(pill)
+  outline: none
+
+#action-new-project.btn.tiny, #action-search-archives.btn.tiny
+  +button(pill, white)
+  font-size: 18px
+
+#new-project-overlay
+  //visibility: hidden
+  position: fixed
+  left: 0px
+  top: 0px
+  width: 100%
+  height: 100%
+  text-align: center
+  z-index: 1000
+  background-color: rgba(0,0,0,.5)
+
+  >div
+    max-width: 650px
+    width: 80%
+    margin: 100px auto
+    background-color: red
+    border: 1px solid #000
+    padding: 15px
+    text-align: center
+
+
+.filter-text-container
+  font-size: 150%
+  position: relative
+  display: inline-block
+  input
+    max-width: 540px
+    width: 100%
+    font-size: inherit
+    line-height: inherit
+    border: none
+    outline: none
+    border-bottom: 1px dashed #555555
+    background-color: #ddddee
+    border-radius: 50px 50px
+    padding-left: 10px
+    padding-right: 35px
+.filter-text-container:after
+  @extend [class^="icon-"]:before, [class*=" icon-"]:before
+  @extend .icon-search:before
+  position: absolute
+  right: 4px
+  top: 6px
+  opacity: 0.5
+
+.project-icon-column:hover
+  //.icon-wrapper>i:before
+  //  @extend [class^="icon-"]:before, [class*=" icon-"]:before
+  //  @extend .icon-clock:before
+  .icon-wrapper
+    opacity: 0.75 !important
+
+  .icon-expand
+    padding-top: 5px !important
+    margin-bottom: -5px !important
+    opacity: 0.75 !important
+  background-position: 0px 0px !important
+  min-height: 75px
+  min-width: 50px
+  cursor: pointer
+
+div.container
+  +outer-container
+
+
+#projects_container
+
+  .client-name
+    color: #6f6f6f
+    position: absolute
+    top: -20px
+    white-space: nowrap
+
+  .project-row
+    +clearfix
+    padding-left: 175px   /* LC width */
+    padding-right: 175px  /* RC width */
+    &>div
+      position: relative
+      float: left
+    .project-info-column
+      width: 100%
+    .project-code-column
+      width: 125px          /* LC width */
+      right: 125px          /* LC width */
+      margin-left: -100%
+    .project-icon-column
+      width: 50px          /* LC width */
+      right: 175px          /* LC width */
+      margin-left: -100%
+    .project-status-column
+      margin-top: 18px
+      width: 175px          /* RC width */
+      margin-right: -175px  /* RC width */
+      padding-right: 10px
+
+  //div.project-row>div
+  //  display: table-cell
+  //div.project-row>div:nth-child(1)
+  //  min-width: 50px
+  //  width: 50px
+  //  table-layout: fixed
+  //  +media($phone)
+  //    position: absolute
+  //    right: 10px
+  //div.project-row>div:nth-child(2)
+  //  min-width: 120px
+  //div.project-row>div:nth-child(3)
+  //  width: 100%
+  //div.project-row>div:nth-child(4)
+  //  min-width: 150px
+  //div.project-row>div:nth-child(5)
+  //  min-width: 100px
+  //  +media($tablet)
+  //    display: none
+
+  .project-details
+    display: block
+    width: 100%
+    min-height: 50px
+
+  .project-container
+    >.details-row
+      display: none
+
+    &.expanded
+      .icon-expand
+        padding-top: 10px
+        margin-bottom: -10px
+        opacity: .75 !important
+        >i.icon-down-open-big:before
+          @extend [class^="icon-"]:before, [class*=" icon-"]:before
+          @extend .icon-up-open-big:before
+
+    border-top: 1px solid #cccccc
+    &:hover
+      background-color: #fafafa
+    .area-status button, .area-status .button
+      padding-right: 22px
+      >i
+        position: absolute
+        right: 5px
+        top: 7px
+    button, .button
+      position: relative
+      outline: none
+      +button(white)
+      &.btn-archive
+        +button(darkred)
+      &.btn-active
+        +button(green)
+      &.btn-pending
+        +button(gold)
+      &.btn-new
+        +button(orange)
+      &.btn-completed
+        +button(blue)
+      &.btn-time-sheet
+        +button(lightblue)
+      &.btn-attention
+        +button(red)
+      &.btn-cancelled
+        +button(darkred)
+      //padding-right: 22px
+      display: block
+      width: 100%
+      margin-bottom: 0px
+
+  .project-status-column, .project-action-column
+    //vertical-align: middle
+    button, .button
+      text-transform: capitalize
+    button.dropdown-active, .button.dropdown-active
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+    .dropdown-menu
+      width: 150px
+      a
+        text-transform: capitalize
+  .project-icon-column
+
+    +linear-gradient(to top, transparent 60%, #dddddd 80%)
+    +transition(background-position 0.25s)
+    background-size: 1px 200px
+    background-position: 0px -100px
+    //position: relative
+    .icon-wrapper, .icon-expand
+      width: 100%
+      font-size: 175%
+      text-align: center
+      padding-top: 20px
+      opacity: 0.5
+    .icon-expand
+      padding-top: 0px
+      +transition( opacity 0.75s, padding-top 0.25s, margin-bottom 0.25s )
+
+      opacity: 0.2
+
+
+  .project-code-column
+    .project-hours, .project-expenses
+      color: gray
+    .project-code, .edit-code
+      background: none
+      margin: 0px
+      padding: 0px
+      font-weight: bold
+      font-size: 150%
+      color: black
+      text-decoration: none !important
+      border: 0px
+      border-bottom: 1px solid transparent
+    .edit-code
+      display: none
+      border-bottom: 1px dashed #555555
+      outline: none
+      min-width: auto
+      width: 100%
+    .project-date.past-due
+      color: red
+    .project-date.no-date
+      color: gray
+    .project-date, .edit-date
+      background: none
+      margin: 0px
+      padding: 0px
+      font-size: 100%
+      padding-top: 5px
+      font-weight: bold
+      border: 0px
+      border-bottom: 1px solid transparent
+    .edit-date
+      display: none
+      border-bottom: 1px dashed #555555
+      outline: none
+      min-width: auto
+      width: 100%
+  .project-info-column
+    //position: relative
+
+    .past-due
+      color: red
+    .project-notes, .edit-notes
+      color: gray
+      margin: 2px
+      padding: 2px
+      font-size: 80%
+      border: 1px solid transparent
+
+    .edit-notes
+      display: none
+      border: none
+      background: none
+      outline: none
+      border: 1px dashed #555555
+      width: 100%
+      height: 70px
+
+    .edit-name, .project-name
+      width: 100%
+      //font-weight: bold
+      font-size: 150%
+      color: #555555
+      font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', helvetica, arial, sans-serif
+
+    .project-client-name
+      font-weight: bold
+      padding-top: 5px
+
+    .edit-name
+      display: none
+      border: none
+      background: none
+      outline: none
+      border-bottom: 1px dashed #555555
+
+      margin: 0px
+      padding: 0px
+    .project-name
+      margin: 0px
+      padding: 0px
+
+      display: block
+      border-bottom: 1px solid transparent
+
+  .project-completion
+    font-size: 75%
+    position: absolute
+    bottom: 0px
+    right: 0px
+    white-space: nowrap
+
+  button.action-edit
+    +button(white)
+    display: block !important
+  .action-save, .action-undo
+    display: none !important
+  .action-edit
+    display: none
+
+
+  select.edit-secondary-client-id
+    display: none
+  select.edit-client-id
+    display: none
+
+  .project-client-name
+    display: inline-block
+  .project-secondary-client-name
+    &:before
+      content: ' - '
+    display: inline-block
+    color: #555555
+    padding-top: 5px
+
+  .project-row.editing
+
+    .edit-name
+      display: block
+    .project-name
+      display: none
+    .edit-notes
+      display: block
+    .project-notes
+      display: none
+    .edit-date
+      display: inline-block
+    .project-date
+      display: none
+    .action-save
+      display: block !important
+    .action-undo
+      display: block !important
+    button.action-edit
+      display: none !important
+    .action-archive
+      display: none
+    .action-restore
+      display: none
+
+  .project-row.editing-client
+    .project-code
+      display: none
+    .edit-code
+      display: inline-block
+    .project-client-name
+      display: none
+    .project-secondary-client-name
+      display: none
+    select.edit-secondary-client-id
+      display: inline-block
+    select.edit-client-id
+      display: inline-block
+
+.dropdown-menu
+  box-shadow: 0px 3px 6px rgba(0,0,0,.75)
+  display: none
+  position: absolute
+  overflow: hidden
+  background-color: white
+  margin: 0px
+  padding: 0px
+  width: 100%
+
+  border-radius: 0px 0px 10px 10px
+  border: 1px solid #cccccc
+  z-index: 101
+
+  li
+    +transition(all 0.2s)
+    a
+      cursor: pointer
+      display: block
+      padding: 5px
+      width: 100%
+      color: #555555
+    &:hover
+      background-color: #eeeeee
+      a
+        color: black
+    border-top: 1px solid #cccccc
+    border-bottom: 1px solid #cccccc
+    list-style: none
+
+.dropdown-toggle.dropdown-active+.dropdown-menu
+  display: block
+
+
+
+#projects_container
+  .btn-group-inline
+    display: inline-block
+  button.btn-pill, .button.btn-pill
+    display: inline-block
+    width: auto
+    +button(pill, white)
+    &.project-manager
+      +button(pill, #98AFC7)
+      padding-right: 4px
+      padding-left: 7px
+    &.current-user
+      font-weight: bold
+      border: 2px solid black !important
+    padding-right: 4px
+    padding-left: 7px
+    
+  button.btn-pill + .dropdown-menu, .button.btn-pill + .dropdown-menu
+    width: 150px
+    border-radius: 10px
+
+
+
++media($phone)
+  #projects_container
+    div.row
+      display: block
+      background-color: gray
+    div.project-row>div
+      display: block
+    div.project-row>div:nth-child(1)
+    div.project-row>div:nth-child(2)
+      display: block
+    div.project-row>div:nth-child(3)
+      display: block
+    div.project-row>div:nth-child(4)
+      display: block
+    div.project-row>div:nth-child(5)
+
+    .project-row
+      border: 2px solid #cccccc
+      border-radius: 10px
+      padding: 5px
+      margin-top: 5px
+      &:hover
+        background-color: #eeeeee
+  button, .button
+    width: 100% !important
+  .dropdown-menu
+    position: relative
+    width: 100% !important
+
+
+//----------------
+//
+//  Activity Log
+//
+//----------------
+
+
+.profile-pic
+  float: left
+  width: 250px
+  +media($phone)
+    width: 100%
+  +media($tablet)
+    width: 125px
+  +media($desktop)
+    float: none
+
+
+.activity-chart-day
+  margin-left: auto
+  margin-right: auto
+  border-radius: 100px
+  background: #eeeeee
+  //+media($desktop)
+  border: 4px solid #cccccc
+  width: 100px
+  height: 100px
+  text-align: center
+  .date-name
+    font-size: 20px
+    padding-top: 28px
+.activity-info
+  max-height: 400px
+  padding-bottom: 20px
+  border-radius: 20px
+  overflow: hidden
+  border-top: 2px solid #cccccc
+  border-bottom: 2px solid #cccccc
+  border-left: 4px solid #cccccc
+  border-right: 4px solid #cccccc
+  .time
+    text-align: center
+    margin-left: 10px
+    margin-right: 10px
+  .activity-name
+    font-size: 20px
+    text-align: center
+    color: blue
+    &.running
+      color: red
+.activity-project-right
+  padding-bottom: 20px
+  border-radius: 10px
+  .project-name
+    +media($desktop)
+      padding-left: 10px
+    font-size: 20px
+    //+respond-to(desktop)
+    border-bottom: 4px solid #cccccc
+  .client-name
+    +media($desktop)
+      padding-left: 10px
+    font-size: 20px
+    color: gray
+    //border-bottom: 4px solid #cccccc
+  .time
+    float: right
+    margin-left: 10px
+    margin-right: 10px
+    font-size: 80%
+    +media($desktop)
+      float: left
+  .profile-image
+    >img
+      float: left
+    float: left
+    overflow: hidden
+    border-radius: 10px
+    margin: 0px 5px 5px 5px
+    border: 1px solid #cccccc
+  +media($desktop)
+    border-left: 4px solid #cccccc
+    margin-left: 50%
+    width: 50%
+    min-height: 0px
+  clear: both
+.activity-project-left
+  border-radius: 10px
+  padding-bottom: 20px
+  .project-name
+    font-size: 20px
+    border-bottom: 4px solid #cccccc
+  .client-name
+    font-size: 20px
+    color: gray
+    //border-bottom: 4px solid #cccccc
+  .time
+    float: right
+    margin-left: 10px
+    margin-right: 10px
+    font-size: 80%
+  .profile-image
+    >img
+      float: left
+    float: left
+    overflow: hidden
+    border-radius: 10px
+    margin: 0px 5px 5px 5px
+    border: 1px solid #cccccc
+  +media($desktop)
+    border-right: 4px solid #cccccc
+    margin-right: 50%
+    width: 50%
+    min-height: 0px
+  clear: both
+.activity-project-space
+  padding-bottom: 20px
+  +media($desktop)
+    border-right: 2px solid #cccccc
+    margin-right: 50%
+    width: 50%
+    min-height: 0px
+  clear: both
+  +media($desktop)
+    &.space-next-right
+      border-left: none
+      border-right: 4px solid #999999
+      border-bottom-right-radius: 10px
+      margin-right: 50%
+      width: 50%
+    &.space-next-left
+      border-right: none
+      border-left: 4px solid #999999
+      border-bottom-left-radius: 10px
+      margin-left: 50%
+      width: 50%
+    &.space-prev-right
+      border-left: none
+      border-right: 4px solid #999999
+      border-top-right-radius: 10px
+      margin-right: 50%
+      width: 50%
+    &.space-prev-left
+      border-right: none
+      border-left: 4px solid #999999
+      border-top-left-radius: 10px
+      margin-left: 50%
+      width: 50%
+.activity-clear
+  clear: both

@@ -1,0 +1,118 @@
+.project-details-view
+  padding-bottom: 10px
+
+
+  .entries-view
+    min-height: 20px
+    border: 1px solid #cccccc
+    border-top: none
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    background: #f8f8f8
+    padding-left: 8px
+    padding-right: 8px
+
+    padding-top: 8px
+    padding-bottom: 8px
+
+
+  .entry-row
+    +row
+    .entry-date-column
+      +span-columns(1)
+    .entry-user-column
+      +span-columns(2)
+    .entry-hours-column, .entry-cost-column
+      +span-columns(1)
+    .entry-notes-column
+      +span-columns(8)
+
+  .time-entry-view
+    .edit-task-category-id
+      display: none
+  .time-entry-view.editing
+    .edit-task-category-id
+      display: inline-block
+
+
+
+
+
+
+  .week-view
+    .week-header
+      +row
+
+    .day-heading
+      +span-columns(3 of 25)
+      +media($tablet)
+        +span-columns(2 of 18)
+    .prev-week, .next-week, .all-time, .all-expenses
+      +span-columns(1 of 25)
+      +media($tablet)
+        +span-columns(1 of 18)
+      padding: 0px !important
+      padding-top: 7px !important
+      text-align: center !important
+      i
+        font-size: 26px
+
+
+    .day-heading, .prev-week, .next-week, .all-time, .all-expenses
+      position: relative
+
+      +linear-gradient(to bottom, #ffffff,#eeeeee)
+      border: 1px solid #cccccc
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1)
+      color: #888888
+      display: block
+      font-size: 13px
+      font-weight: bold
+      height: 45px
+      line-height: normal
+      outline: none
+      padding: 6px 15px
+      text-shadow: 0 1px 0 #ffffff
+
+      cursor: pointer
+      text-align: left
+
+      border: 1px solid #cccccc
+      border-left: none
+      &:first-child
+        border-left: 1px solid #cccccc
+        border-top-left-radius: 5px
+      &:last-of-type
+        border-top-right-radius: 5px
+      &:hover
+        +linear-gradient(to bottom, #f8f8f8, #e8e8e8)
+
+      &.selected
+        cursor: default
+        background: #eaeaea
+        box-shadow: inset 0 1px 4px rgba(0,0,0,0.1)
+      +media($phone)
+        text-align: center
+        padding-left: 0px
+        padding-right: 0px
+      .total-time
+        font-weight: normal
+
+      .new-time-entry
+        +button(white)
+        padding: 2px
+        display: none
+        position: absolute
+        right: 5px
+        font-size: 22px
+
+      &.selected
+        .total-time
+          +media($tablet)
+            visibility: hidden
+          +media($phone)
+            visibility: visible
+        .new-time-entry
+          display: inline-block
+          +media($phone)
+            display: none

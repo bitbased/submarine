@@ -1,0 +1,10 @@
+- status = @status
+
+.btn-group{ :class => "btn-block" if @block == undefined or @block }
+  %button.dropdown-toggle{ :class => "#{ "btn-block " if @block == undefined or @block }#{ 'btn-' + status.replace(/_/g,"-") }", "data-toggle" => "dropdown" }= status.replace(/_/g," ")
+    %i.icon-down-open
+
+  %ul.dropdown-menu
+    - for status_item in ['active', 'attention', 'pending', 'time_sheet', 'bill_out', 'bill_out_partial', 'po_needed', 'completed', 'cancelled', 'new']
+      %li{ :class => "#{ 'disabled' if status == status_item }" }
+        %a.status-select{"data-status" => status_item}= status_item.replace(/_/g, " ")

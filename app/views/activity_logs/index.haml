@@ -1,0 +1,77 @@
+%h1 Recent Activity
+
+
+- odd = false
+- lid = 0
+- day = 0
+- ActivityLog.where("dismiss_at IS NULL OR dismiss_at > ?", DateTime.now).order("change_time DESC").where("parent_id IS NULL").limit(50).each do |entry|
+- # .where(:activity => ["model.update", "model.create", "syncronize"])
+  - if entry.change_time
+    - dt = entry.change_time.in_time_zone(current_user.time_zone).strftime('%Y%m%d')
+    - if dt != day
+      - day = dt
+      - lid = 0
+      .activity-project-space{ :class => odd ? "space-prev-right" : "space-prev-left" }
+      .activity-chart-day
+        .date-name
+          = dt == DateTime.now.in_time_zone(current_user.time_zone).strftime('%Y%m%d') ? "Today" : entry.change_time.in_time_zone(current_user.time_zone).strftime('%A')
+        .date-date.muted
+          = entry.change_time.in_time_zone(current_user.time_zone).strftime('%b %-d')
+      .activity-project-space{ :class => odd ? "space-next-left" : "space-next-right" }
+
+
+    - if entry.activity == "syncronize"
+      - lid = 0
+      .activity-project-space{ :class => odd ? "space-prev-right" : "space-prev-left" }
+      .activity-info
+        .activity-name{ :class => entry.running? ? "running" : "" }
+          Syncronize
+          %span.muted
+            = entry.change_time.in_time_zone(current_user.time_zone).strftime('%-I:%M%p')
+        - entry.message.split("\n").each do |m|
+          .activity-message
+            = m
+      .activity-project-space{ :class => odd ? "space-next-left" : "space-next-right" }
+
+    - if entry.activity == "model.update" || entry.activity == "model.create"
+      - if entry.resource_type == "Project"
+        - project = Project.with_deleted.find(entry.resource_id)
+
+        - if project.id != lid
+          - lid = project.id
+          - odd = !odd
+          - if odd
+            .activity-project-right
+              .project-name= project.name
+              .client-name= project.client.name if project.client
+          - else
+            .activity-project-left
+              .project-name= project.name
+              .client-name= project.client.name if project.client
+
+        - if entry.user
+          - gravatar_id = Digest::MD5.hexdigest(entry.user.email.downcase)
+        - else
+          - gravatar_id = Digest::MD5.hexdigest(SubmarineAccount.current_account.harvest_email.gsub(/(^[a-zA-Z0-9._%+-]+@)/,"info@").downcase)
+        - if odd
+          .activity-project-right
+            .time.muted
+              = entry.change_time.in_time_zone(current_user.time_zone).strftime('%-I:%M%p')
+            .profile-image
+              %img{ src: "http://gravatar.com/avatar/#{gravatar_id}.png?s=48" }
+            = entry.message
+            .activity-clear
+            %pre
+              = entry.data.to_yaml
+            .activity-clear
+        - else
+          .activity-project-left
+            .time.muted
+              = entry.change_time.in_time_zone(current_user.time_zone).strftime('%-I:%M%p')
+            .profile-image
+              %img{ :src => "http://gravatar.com/avatar/#{gravatar_id}.png?s=48" }
+            = entry.message
+            .activity-clear
+            %pre
+              = entry.data.to_yaml
+            .activity-clear

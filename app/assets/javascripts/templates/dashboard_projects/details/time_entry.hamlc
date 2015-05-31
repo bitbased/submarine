@@ -1,0 +1,31 @@
+.entry-row
+  .entry-date-column
+    - date = @model.get('date')
+    = new Date(date).format("m/dd/yy") if date
+
+  .entry-user-column
+    - user = @users_collection.get(@model.get('user_id'))
+    - if user
+      = user.get('first_name')
+      = user.get('last_name')
+
+  .entry-hours-column
+    = @model.get("hours")
+    hrs
+
+  .entry-notes-column
+    %b= "[#{@model.get("project_code")}]"
+    %b= "#{@model.get("project_name")}"
+    %span= "(#{@model.get("client_name")})"
+
+    - unless @model.get('notes') == "" || !@model.get('notes')
+      %i= "#{@model.get("task_category_name")}:"
+      != formatLinks @model.get("notes").replace(/\n/g,"<br>")
+    - else
+      %i= "#{@model.get("task_category_name")}"
+
+
+%select.edit-task-category-id
+  %option(value="#{@model.get('task_category_id')}")= @model.get('task_category_name')
+  .task-category-name
+    =@model.get('task_category_name')

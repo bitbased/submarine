@@ -1,0 +1,61 @@
+<%- model_class = HarvestUser -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:submarine_account_id) %>:</strong></dt>
+  <dd><%= @harvest_user.submarine_account_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
+  <dd><%= @harvest_user.slug %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @harvest_user.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:harvest_id) %>:</strong></dt>
+  <dd><%= @harvest_user.harvest_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cache) %>:</strong></dt>
+  <dd><%= @harvest_user.cache %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data) %>:</strong></dt>
+  <dd><%= @harvest_user.data %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @harvest_user.state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sync) %>:</strong></dt>
+  <dd><%= @harvest_user.sync %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sync_time) %>:</strong></dt>
+  <dd><%= @harvest_user.sync_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:change_time) %>:</strong></dt>
+  <dd><%= @harvest_user.change_time %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:history) %>:</strong></dt>
+  <dd><%= @harvest_user.history %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deleted_at) %>:</strong></dt>
+  <dd><%= @harvest_user.deleted_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:archived_on) %>:</strong></dt>
+  <dd><%= @harvest_user.archived_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
+  <dd><%= @harvest_user.active %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:locked_on) %>:</strong></dt>
+  <dd><%= @harvest_user.locked_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:visible) %>:</strong></dt>
+  <dd><%= @harvest_user.visible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:audit_log) %>:</strong></dt>
+  <dd><%= @harvest_user.audit_log %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:permalog) %>:</strong></dt>
+  <dd><%= @harvest_user.permalog %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:draft) %>:</strong></dt>
+  <dd><%= @harvest_user.draft %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:drafting) %>:</strong></dt>
+  <dd><%= @harvest_user.drafting %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:priority) %>:</strong></dt>
+  <dd><%= @harvest_user.priority %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              harvest_users_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_harvest_user_path(@harvest_user), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              harvest_user_path(@harvest_user),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

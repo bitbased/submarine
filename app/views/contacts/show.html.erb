@@ -1,0 +1,130 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @contact.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @contact.last_name %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @contact.tags %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @contact.company %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @contact.title %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <b>Office number:</b>
+  <%= @contact.office_number %>
+</p>
+
+<p>
+  <b>Mobile number:</b>
+  <%= @contact.mobile_number %>
+</p>
+
+<p>
+  <b>Fax number:</b>
+  <%= @contact.fax_number %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @contact.notes %>
+</p>
+
+<p>
+  <b>Shared:</b>
+  <%= @contact.shared %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @contact.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @contact.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @contact.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @contact.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @contact.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @contact.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @contact.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @contact.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @contact.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @contact.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @contact.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @contact.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @contact.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @contact.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

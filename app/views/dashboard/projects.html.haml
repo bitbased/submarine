@@ -1,0 +1,10 @@
+%script
+  Submarine.Cache["Users"] = #{ User.order(:first_name, :last_name).to_json.html_safe };
+  Submarine.Cache["Clients"] = #{ Client.order(:name).to_json.html_safe };
+  Submarine.Cache["Projects"] = #{ @projects.to_json.html_safe };
+
+.alert-box.loading-spinner
+  %i.icon-refresh.icon-spin
+  Loading...
+
+= content_tag "div","", id: "projects_container"

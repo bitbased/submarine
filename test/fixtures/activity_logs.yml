@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  parent: 
+  activity: MyString
+  message: MyText
+  description: MyText
+  show_to: MyText
+  starred_by: MyText
+  viewed_by: MyText
+  cleared_by: MyText
+  activity_time: 2013-02-22 08:48:27
+  notes: MyText
+  history: MyText
+  visible: false
+  deleted_at: 2013-02-22 08:48:27
+  data: MyText
+  resource_type: MyString
+  resource_id: 1
+  resource_name: MyText
+  resource_data: MyText
+  resource_state: MyText
+
+two:
+  user: 
+  parent: 
+  activity: MyString
+  message: MyText
+  description: MyText
+  show_to: MyText
+  starred_by: MyText
+  viewed_by: MyText
+  cleared_by: MyText
+  activity_time: 2013-02-22 08:48:27
+  notes: MyText
+  history: MyText
+  visible: false
+  deleted_at: 2013-02-22 08:48:27
+  data: MyText
+  resource_type: MyString
+  resource_id: 1
+  resource_name: MyText
+  resource_data: MyText
+  resource_state: MyText

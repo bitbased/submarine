@@ -1,0 +1,125 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @information.parent %>
+</p>
+
+<p>
+  <b>Primary group:</b>
+  <%= @information.primary_group %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @information.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @information.description %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @information.tags %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @information.template %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @information.notes %>
+</p>
+
+<p>
+  <b>Items:</b>
+  <%= @information.items %>
+</p>
+
+<p>
+  <b>Secure items:</b>
+  <%= @information.secure_items %>
+</p>
+
+<p>
+  <b>Secure params:</b>
+  <%= @information.security_scheme %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @information.data %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @information.state %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @information.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @information.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @information.change_time %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @information.history %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%= @information.deleted_at %>
+</p>
+
+<p>
+  <b>Archived:</b>
+  <%= @information.archived_on %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @information.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @information.locked_on %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @information.visible %>
+</p>
+
+<p>
+  <b>Audit log:</b>
+  <%= @information.audit_log %>
+</p>
+
+<p>
+  <b>Permalog:</b>
+  <%= @information.permalog %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @information.priority %>
+</p>
+
+
+<%= link_to 'Edit', edit_information_path(@information) %> |
+<%= link_to 'Back', information_index_path %>

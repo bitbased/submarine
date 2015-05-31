@@ -1,0 +1,57 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Notes</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.contact %></td>
+    <td><%= user.first_name %> <%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.notes %></td>
+    <td><%= user.data %></td>
+    <td><%= user.state %></td>
+    <td><%= user.sync %></td>
+    <td><%= user.sync_time %></td>
+    <td><%= user.change_time %></td>
+    <td><%= user.history %></td>
+    <td><%= user.deleted_at %></td>
+    <td><%= user.archived_on %></td>
+    <td><%= user.active %></td>
+    <td><%= user.locked_on %></td>
+    <td><%= user.visible %></td>
+    <td><%= user.audit_log %></td>
+    <td><%= user.permalog %></td>
+    <td><%= user.priority %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

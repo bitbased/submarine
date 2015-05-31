@@ -1,0 +1,43 @@
+<%= simple_form_for(@time_entry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%#= f.association :base_project %>
+    <%#= f.association :base_task %>
+    <%= f.association :user %>
+    <%= f.association :project %>
+    <%= f.association :task_category %>
+    <%#= f.input :billable %>
+    <%#= f.input :billed %>
+    <%= f.input :date, as: :date %>
+    <%#= f.input :start_time %>
+    <%#= f.input :end_time %>
+    <%#= f.input :idle %>
+    <%= f.input :hours %>
+    <%#= f.input :timers %>
+    <%#= f.input :category %>
+    <%#= f.input :tags %>
+    <%#= f.association :client %>
+    <%#= f.association :contact %>
+    <%#= f.input :status %>
+    <%= f.input :notes %>
+    <%#= f.input :data %>
+    <%#= f.input :state %>
+    <%#= f.input :sync %>
+    <%#= f.input :sync_time %>
+    <%#= f.input :change_time %>
+    <%#= f.input :history %>
+    <%#= f.input :deleted_at %>
+    <%#= f.input :archived_on %>
+    <%#= f.input :active %>
+    <%#= f.input :locked_on %>
+    <%#= f.input :visible %>
+    <%#= f.input :audit_log %>
+    <%#= f.input :permalog %>
+    <%#= f.input :priority %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

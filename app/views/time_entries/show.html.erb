@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @time_entry.project %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= @time_entry.task %>
+</p>
+
+<p>
+  <b>Billable:</b>
+  <%= @time_entry.billable %>
+</p>
+
+<p>
+  <b>Billed:</b>
+  <%= @time_entry.billed %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @time_entry.date %>
+</p>
+
+<p>
+  <b>Harvest Data:</b>
+  <%= @time_entry.harvest_time_entries.first.cache.inspect rescue "Not Synced" %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @time_entry.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @time_entry.end_time %>
+</p>
+
+<p>
+  <b>Idle:</b>
+  <%= @time_entry.idle %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%= @time_entry.hours %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @time_entry.client %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @time_entry.user %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @time_entry.notes %>
+</p>
+
+<p>
+  <b>Sync:</b>
+  <%= @time_entry.sync %>
+</p>
+
+<p>
+  <b>Sync time:</b>
+  <%= @time_entry.sync_time %>
+</p>
+
+<p>
+  <b>Change time:</b>
+  <%= @time_entry.change_time %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @time_entry.active %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @time_entry.locked_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_entry_path(@time_entry) %> |
+<%= link_to 'Back', time_entries_path %>

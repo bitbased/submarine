@@ -1,0 +1,21 @@
+.form-inline
+
+  Sort By:
+  .btn-group(data-toggle="buttons-radio")
+    %button#sort_projects_by_special.btn.tiny.active(type="button") Client->Project/Code
+    %button#sort_projects_by_code.btn.tiny(type="button") Code
+    %button#sort_projects_by_status.btn.tiny(type="button") Status
+    %button#sort_projects_by_due_date.btn.tiny(type="button") Date
+    %button#filter_current_user.btn.tiny My Projects
+  
+  %form{ name:'search_form', style: 'display: inline-block' }
+    .filter-text-container
+      %input#filter_text{ name: 'query', type: 'text', placeholder: 'Filter' }
+    %button#action-search-archives.button.btn.tiny{ type: 'submit', onClick: 'document.search_form.submit()' }
+      %i.icon-search
+      Archives
+  %button#action-new-project.btn.tiny
+    %i.icon-clipboard
+    New Project
+    
+#projects.projects-table

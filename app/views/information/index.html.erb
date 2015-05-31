@@ -1,0 +1,71 @@
+<h1>Listing information</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Primary group</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Tags</th>
+    <th>Template</th>
+    <th>Notes</th>
+    <th>Items</th>
+    <th>Secure items</th>
+    <th>Secure params</th>
+    <th>Global</th>
+    <th>Data</th>
+    <th>State</th>
+    <th>Sync</th>
+    <th>Sync time</th>
+    <th>Change time</th>
+    <th>History</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th>Audit log</th>
+    <th>Permalog</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @information.each do |information| %>
+  <tr>
+    <td><%= information.parent %></td>
+    <td><%= information.primary_group %></td>
+    <td><%= information.name %></td>
+    <td><%= information.description %></td>
+    <td><%= information.tags %></td>
+    <td><%= information.template %></td>
+    <td><%= information.notes %></td>
+    <td><%= information.items %></td>
+    <td><%= information.secure_items %></td>
+    <td><%= information.security_scheme %></td>
+    <td><%= information.global %></td>
+    <td><%= information.data %></td>
+    <td><%= information.state %></td>
+    <td><%= information.sync %></td>
+    <td><%= information.sync_time %></td>
+    <td><%= information.change_time %></td>
+    <td><%= information.history %></td>
+    <td><%= information.deleted_at %></td>
+    <td><%= information.archived_on %></td>
+    <td><%= information.active %></td>
+    <td><%= information.locked_on %></td>
+    <td><%= information.visible %></td>
+    <td><%= information.audit_log %></td>
+    <td><%= information.permalog %></td>
+    <td><%= information.priority %></td>
+    <td><%= link_to 'Show', information %></td>
+    <td><%= link_to 'Edit', edit_information_path(information) %></td>
+    <td><%= link_to 'Destroy', information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Information', new_information_path %>

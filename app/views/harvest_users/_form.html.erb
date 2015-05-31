@@ -1,0 +1,28 @@
+<%= simple_form_for @harvest_user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :submarine_account_id %>
+  <%= f.input :slug %>
+  <%= f.input :user_id %>
+  <%= f.input :harvest_id %>
+  <%= f.input :cache %>
+  <%= f.input :data %>
+  <%= f.input :state %>
+  <%= f.input :sync %>
+  <%= f.input :sync_time %>
+  <%= f.input :change_time %>
+  <%= f.input :history %>
+  <%= f.input :deleted_at %>
+  <%= f.input :archived_on %>
+  <%= f.input :active %>
+  <%= f.input :locked_on %>
+  <%= f.input :visible %>
+  <%= f.input :audit_log %>
+  <%= f.input :permalog %>
+  <%= f.input :draft %>
+  <%= f.input :drafting %>
+  <%= f.input :priority %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                harvest_users_path, :class => 'btn' %>
+  </div>
+<% end %>

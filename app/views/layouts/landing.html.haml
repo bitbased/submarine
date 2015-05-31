@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    = csrf_meta_tags
+    %title Submarine
+    /[if lt IE 9]
+      %script{ :src => "http://html5shim.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %body
+
+    #wrap
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            %a.brand{ :href => "/" }
+              %img{ :src =>"/assets/logo_header.png", :style => "height:22px"}
+
+      %div.container
+        %div.row
+          %div.span12= yield

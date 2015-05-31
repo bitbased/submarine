@@ -1,0 +1,50 @@
+.project-icon-column.action-show{ style: "white-space: nowrap; #{ 'opacity:0.25;' if !@model.get('active') };" }
+
+  - project_name = @model.get('name')
+  - project_name = "" unless project_name
+  - project_name = project_name.toLowerCase() if project_name
+  .icon-wrapper
+    - if project_name.indexOf("email") != -1
+      %i.icon-mail
+
+    - else if project_name.indexOf("blog") != -1 || project_name.indexOf("wordpress") != -1
+      %i.icon-pencil
+
+    - else if project_name.indexOf("website") != -1
+      %i.icon-globe
+
+    - else if project_name.indexOf("brochure") != -1 || project_name.indexOf("booklet") != -1 || project_name.indexOf("handout") != -1 || project_name.indexOf("flyer") != -1 || project_name.indexOf("mail") != -1 || project_name.indexOf("print") != -1
+      %i.icon-print
+
+    - else if project_name.indexOf("facebook") != -1
+      %i.icon-facebook-sign
+
+    - else if project_name.indexOf("social") != -1 || project_name.indexOf("twitter") != -1
+      %i.icon-twitter
+
+    - else if project_name.indexOf("ss&l") != -1 || project_name.indexOf("listing") != -1 || project_name.indexOf("map") != -1 || project_name.indexOf("location") != -1
+      %i.icon-location
+
+    - else if project_name.indexOf("video") != -1 || project_name.indexOf("reel") != -1
+      %i.icon-video
+
+    - else if project_name.indexOf("web") != -1
+      %i.icon-globe
+
+    - else if project_name.indexOf("press") != -1 || project_name.indexOf("news") != -1
+      %i.icon-rss
+
+    - else if project_name.indexOf("creative") != -1 || project_name.indexOf("logo") != -1 || project_name.indexOf("brand") != -1
+      %i.icon-lamp
+
+    - else if project_name.indexOf("media") != -1
+      %i.icon-newspaper
+
+    - else if project_name.indexOf("photo") != -1
+      %i.icon-camera
+
+    - else
+      %i.icon-clipboard
+
+  .icon-expand
+    %i.icon-down-open-big

@@ -1,0 +1,9 @@
+schema.rb
+development.log
+tmp
+
+PRIVATE.md
+
+.sass-cache
+
+.powenv

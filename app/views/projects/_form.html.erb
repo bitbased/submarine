@@ -1,0 +1,33 @@
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.association :parent, :collection => Project.where(:active => true) %>
+
+    <%= f.association :client, include_blank: false %>
+    <%= f.association :secondary_client %>
+
+    <%= f.association :contact %>
+
+    <%= f.input :code %>
+    <%= f.input :name %>
+
+    <%= f.input :status, include_blank: false, collection: [:new, :active, :attention, :pending, :bill_out, :bill_out_partial, :po_needed, :time_sheet, :completed, :cancelled] %>
+    <%= f.input :progress, collection: [0,10,20,30,40,50,60,70,80,90,100] %>
+
+    <%= f.input :start_date, :as => :date %>
+    <%= f.input :due_date, :as => :date %>
+
+    <%#= f.input :close_date, :as => :date %>
+
+    <%= f.input :notes, :input_html => { :rows => "5" } %>
+
+    <%= f.input :update_associations %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

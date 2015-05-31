@@ -1,0 +1,17 @@
+<%= simple_form_for(@expense_entry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :project %>
+    <%= f.association :expense_category %>
+    <%= f.input :date, as: :date %>
+    <%= f.input :notes %>
+    <%= f.input :total_cost %>
+    <%= f.input :units %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

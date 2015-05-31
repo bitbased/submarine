@@ -1,0 +1,48 @@
+<h1>Listing expense_entries</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Expense Category</th>
+    <th>Project</th>
+    <th>Notes</th>
+    <th>Total Cost</th>
+    <th>Units</th>
+    <th>Date</th>
+    <th>Billed</th>
+    <th>Deleted</th>
+    <th>Archived</th>
+    <th>Active</th>
+    <th>Locked</th>
+    <th>Visible</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @expense_entries.each do |expense_entry| %>
+  <tr>
+    <td><%= expense_entry.user %></td>
+    <td><%= expense_entry.expense_category %></td>
+    <td><%= expense_entry.project %></td>
+    <td><%= expense_entry.notes %></td>
+    <td><%= expense_entry.total_cost %></td>
+    <td><%= expense_entry.units %></td>
+
+    <td><%= expense_entry.date %></td>
+    <td><%= expense_entry.billed %></td>
+    <td><%= expense_entry.deleted_at %></td>
+    <td><%= expense_entry.archived_on %></td>
+    <td><%= expense_entry.active %></td>
+    <td><%= expense_entry.locked_on %></td>
+    <td><%= expense_entry.visible %></td>
+    <td><%= link_to 'Show', expense_entry %></td>
+    <td><%= link_to 'Edit', edit_expense_entry_path(expense_entry) %></td>
+    <td><%= link_to 'Destroy', expense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Expense entry', new_expense_entry_path %>
